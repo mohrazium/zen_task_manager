@@ -1,0 +1,6 @@
+database:
+  name: zen_task_manager_db
+  user: zen_task_manager_user
+  password: Z3n#T45k#M4n4g3r#P455w0rd
+  host: localhost
+  port: 5432

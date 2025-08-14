@@ -1,0 +1,1387 @@
+[
+    {
+        "name": "Phase 1: Backend Core and Database Development",
+        "description": "Setting up the core backend infrastructure, designing the database, and implementing the main APIs for user and task management.",
+        "duration_weeks": 4,
+        "tasks": [
+            {
+                "title": "Set up the project with FastAPI and Docker",
+                "description": "",
+                "phase": "Phase 1: Backend Core and Database Development",
+                "week": 1,
+                "day_range": "1-7",
+                "category": "Project Setup",
+                "priority": "high",
+                "labels": [
+                    "week-1",
+                    "project-setup",
+                    "high",
+                    "estimate-8h",
+                    "phase-1",
+                    "backend",
+                    "phase-1-backend-core-and-database-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 1: Backend Core and Database Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Initialize FastAPI project",
+                    "Install core dependencies: uvicorn, SQLAlchemy",
+                    "Create Dockerfile for FastAPI",
+                    "Configure docker-compose for FastAPI and PostgreSQL"
+                ]
+            },
+            {
+                "title": "Design core models with SQLAlchemy",
+                "description": "",
+                "phase": "Phase 1: Backend Core and Database Development",
+                "week": 1,
+                "day_range": "1-7",
+                "category": "Database Design",
+                "priority": "high",
+                "labels": [
+                    "week-1",
+                    "database-design",
+                    "high",
+                    "estimate-8h",
+                    "phase-1",
+                    "backend",
+                    "phase-1-backend-core-and-database-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 1: Backend Core and Database Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Define User, Task, Project, Tag models with SQLAlchemy",
+                    "Define relationships (one-to-many, etc.)",
+                    "Initialize Alembic for migrations",
+                    "Create first migration script for core models"
+                ]
+            },
+            {
+                "title": "Configure PostgreSQL and prepare for CI/CD",
+                "description": "",
+                "phase": "Phase 1: Backend Core and Database Development",
+                "week": 1,
+                "day_range": "5",
+                "category": "Connection & Orchestration",
+                "priority": "medium",
+                "labels": [
+                    "week-1",
+                    "connection-&-orchestration",
+                    "medium",
+                    "estimate-4h",
+                    "phase-1",
+                    "backend",
+                    "phase-1-backend-core-and-database-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 1: Backend Core and Database Development",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Configure database URL in settings",
+                    "Create database session management logic",
+                    "Implement dependency injection for session",
+                    "Configure docker-compose.prod.yml",
+                    "Add a Makefile for dev commands",
+                    "Write basic CI/CD pipeline template with GitHub Actions"
+                ]
+            },
+            {
+                "title": "Implement OAuth2 and JWT",
+                "description": "",
+                "phase": "Phase 1: Backend Core and Database Development",
+                "week": 2,
+                "day_range": "8-14",
+                "category": "Authentication",
+                "priority": "high",
+                "labels": [
+                    "week-2",
+                    "authentication",
+                    "high",
+                    "estimate-8h",
+                    "phase-1",
+                    "backend",
+                    "phase-1-backend-core-and-database-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 1: Backend Core and Database Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Implement password hashing with `bcrypt`",
+                    "Create JWT token generation and validation functions",
+                    "Build register and login API endpoints",
+                    "Add password reset functionality"
+                ]
+            },
+            {
+                "title": "User Profile Management API",
+                "description": "",
+                "phase": "Phase 1: Backend Core and Database Development",
+                "week": 2,
+                "day_range": "8-14",
+                "category": "User Management",
+                "priority": "medium",
+                "labels": [
+                    "week-2",
+                    "user-management",
+                    "medium",
+                    "estimate-8h",
+                    "phase-1",
+                    "backend",
+                    "phase-1-backend-core-and-database-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 1: Backend Core and Database Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Create API endpoints for user profile (read, update)",
+                    "Implement Pydantic models for request/response",
+                    "Add input validation logic",
+                    "Write unit tests for user management"
+                ]
+            },
+            {
+                "title": "Add Advanced Security Features",
+                "description": "",
+                "phase": "Phase 1: Backend Core and Database Development",
+                "week": 2,
+                "day_range": "5",
+                "category": "Authorization & Security",
+                "priority": "high",
+                "labels": [
+                    "week-2",
+                    "authorization-&-security",
+                    "high",
+                    "estimate-4h",
+                    "phase-1",
+                    "backend",
+                    "phase-1-backend-core-and-database-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 1: Backend Core and Database Development",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Create dependency to check for valid JWT token",
+                    "Apply dependency to protected routes",
+                    "Write integration tests for protected endpoints",
+                    "Implement rate-limiting for auth endpoints",
+                    "Add an endpoint for MFA setup"
+                ]
+            },
+            {
+                "title": "Implement CRUD for tasks",
+                "description": "",
+                "phase": "Phase 1: Backend Core and Database Development",
+                "week": 3,
+                "day_range": "15-21",
+                "category": "Task APIs",
+                "priority": "high",
+                "labels": [
+                    "week-3",
+                    "task-apis",
+                    "high",
+                    "estimate-8h",
+                    "phase-1",
+                    "backend",
+                    "phase-1-backend-core-and-database-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 1: Backend Core and Database Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Create API endpoints for task CRUD operations",
+                    "Add filtering by status, priority, and date",
+                    "Implement pagination logic",
+                    "Write unit tests for task services"
+                ]
+            },
+            {
+                "title": "CRUD for Projects and Tags",
+                "description": "",
+                "phase": "Phase 1: Backend Core and Database Development",
+                "week": 3,
+                "day_range": "3",
+                "category": "Projects and Tags API",
+                "priority": "medium",
+                "labels": [
+                    "week-3",
+                    "projects-and-tags-api",
+                    "medium",
+                    "estimate-4h",
+                    "phase-1",
+                    "backend",
+                    "phase-1-backend-core-and-database-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 1: Backend Core and Database Development",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Create API endpoints for project and tag CRUD",
+                    "Implement logic to assign tasks to projects/tags",
+                    "Write tests for project and tag APIs"
+                ]
+            },
+            {
+                "title": "Implement Advanced Search and write API Tests",
+                "description": "",
+                "phase": "Phase 1: Backend Core and Database Development",
+                "week": 3,
+                "day_range": "15-21",
+                "category": "Advanced Search & Testing",
+                "priority": "high",
+                "labels": [
+                    "week-3",
+                    "advanced-search-&-testing",
+                    "high",
+                    "estimate-8h",
+                    "phase-1",
+                    "backend",
+                    "phase-1-backend-core-and-database-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 1: Backend Core and Database Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Implement full-text search with PostgreSQL",
+                    "Create API endpoints for complex filtering",
+                    "Optimize database queries with indexes",
+                    "Write integration tests for all task-related endpoints",
+                    "Add detailed descriptions and examples to OpenAPI spec"
+                ]
+            },
+            {
+                "title": "Implement Real-time Connection",
+                "description": "",
+                "phase": "Phase 1: Backend Core and Database Development",
+                "week": 4,
+                "day_range": "22-28",
+                "category": "WebSocket",
+                "priority": "medium",
+                "labels": [
+                    "week-4",
+                    "websocket",
+                    "medium",
+                    "estimate-8h",
+                    "phase-1",
+                    "backend",
+                    "phase-1-backend-core-and-database-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 1: Backend Core and Database Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Setup FastAPI WebSocket endpoint",
+                    "Implement logic to broadcast task updates",
+                    "Handle WebSocket connections and disconnections",
+                    "Test WebSocket communication"
+                ]
+            },
+            {
+                "title": "Set up Celery and Redis",
+                "description": "",
+                "phase": "Phase 1: Backend Core and Database Development",
+                "week": 4,
+                "day_range": "3",
+                "category": "Background Tasks",
+                "priority": "medium",
+                "labels": [
+                    "week-4",
+                    "background-tasks",
+                    "medium",
+                    "estimate-4h",
+                    "phase-1",
+                    "backend",
+                    "phase-1-backend-core-and-database-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 1: Backend Core and Database Development",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Configure Redis as Celery broker",
+                    "Define a sample Celery task (e.g., send email)",
+                    "Integrate Celery task invocation into FastAPI endpoints",
+                    "Run Celery worker and test task execution"
+                ]
+            },
+            {
+                "title": "Implement Event-Driven Architecture and Logging",
+                "description": "",
+                "phase": "Phase 1: Backend Core and Database Development",
+                "week": 4,
+                "day_range": "22-28",
+                "category": "Event-Driven & Logging",
+                "priority": "low",
+                "labels": [
+                    "week-4",
+                    "event-driven-&-logging",
+                    "low",
+                    "estimate-8h",
+                    "phase-1",
+                    "backend",
+                    "phase-1-backend-core-and-database-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 1: Backend Core and Database Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Refactor to emit events on task changes",
+                    "Use Celery and Redis to process events asynchronously",
+                    "Implement event handlers for specific actions",
+                    "Configure structured logging for FastAPI",
+                    "Add basic middleware for request tracing",
+                    "Set up error reporting with Sentry"
+                ]
+            }
+        ],
+        "labels": [
+            "phase-1",
+            "backend",
+            "phase-1-backend-core-and-database-development"
+        ],
+        "goals": [
+            "Database and models implementation",
+            "Complete authentication system",
+            "CRUD APIs for tasks, projects, and tags",
+            "WebSocket and background tasks"
+        ]
+    },
+    {
+        "name": "Phase 2: Mobile Application (Flutter) Development",
+        "description": "Developing the mobile user interface, implementing client-side logic, and connecting to the backend APIs.",
+        "duration_weeks": 5,
+        "tasks": [
+            {
+                "title": "Create project and install dependencies",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 5,
+                "day_range": "29-35",
+                "category": "Flutter Setup",
+                "priority": "high",
+                "labels": [
+                    "week-5",
+                    "flutter-setup",
+                    "high",
+                    "estimate-8h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Create new Flutter project",
+                    "Install Mobx, flutter_mobx, dio",
+                    "Setup basic project structure and routing",
+                    "Configure theming and app assets"
+                ]
+            },
+            {
+                "title": "Design Login/Register and Dashboard pages",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 5,
+                "day_range": "29-35",
+                "category": "UI Design",
+                "priority": "high",
+                "labels": [
+                    "week-5",
+                    "ui-design",
+                    "high",
+                    "estimate-8h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Design Login and Register pages UI",
+                    "Create basic Dashboard layout",
+                    "Implement Task List UI component",
+                    "Create reusable UI widgets"
+                ]
+            },
+            {
+                "title": "Implement Mobx stores and advanced UI setup",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 5,
+                "day_range": "5",
+                "category": "State & Advanced UI",
+                "priority": "medium",
+                "labels": [
+                    "week-5",
+                    "state-&-advanced-ui",
+                    "medium",
+                    "estimate-4h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Create an AuthenticationStore and a TaskStore",
+                    "Connect UI widgets to the stores using `Observer`",
+                    "Create a custom theme with dark and light modes",
+                    "Implement a reusable `TaskCard` widget",
+                    "Set up the internationalization (i18n) framework"
+                ]
+            },
+            {
+                "title": "Configure Dio and Service Layer",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 6,
+                "day_range": "36-42",
+                "category": "API Client",
+                "priority": "high",
+                "labels": [
+                    "week-6",
+                    "api-client",
+                    "high",
+                    "estimate-8h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Configure Dio with interceptors for JWT token",
+                    "Create AuthenticationService class",
+                    "Implement register, login, and refresh token methods",
+                    "Handle error and success responses"
+                ]
+            },
+            {
+                "title": "Connect Login/Register forms to API",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 6,
+                "day_range": "3",
+                "category": "UI and Logic",
+                "priority": "high",
+                "labels": [
+                    "week-6",
+                    "ui-and-logic",
+                    "high",
+                    "estimate-4h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Connect Login form to the AuthenticationService",
+                    "Connect Register form to the AuthenticationService",
+                    "Show loading indicators and error messages"
+                ]
+            },
+            {
+                "title": "Store JWT and user settings, and implement offline logic",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 6,
+                "day_range": "36-42",
+                "category": "Data Storage & Offline",
+                "priority": "high",
+                "labels": [
+                    "week-6",
+                    "data-storage-&-offline",
+                    "high",
+                    "estimate-8h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Install `flutter_secure_storage` and `hive`",
+                    "Implement token storage and retrieval logic",
+                    "Initialize Hive and create a settings box",
+                    "Manage user session persistence",
+                    "Implement logic to store tasks locally",
+                    "Show a different UI state when the app is offline"
+                ]
+            },
+            {
+                "title": "Display task list from API",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 7,
+                "day_range": "43-49",
+                "category": "Task List UI",
+                "priority": "high",
+                "labels": [
+                    "week-7",
+                    "task-list-ui",
+                    "high",
+                    "estimate-8h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Create a TaskService to fetch tasks from API",
+                    "Implement UI for filtering and sorting",
+                    "Display tasks in a list using `ListView`",
+                    "Handle loading and empty states"
+                ]
+            },
+            {
+                "title": "Support Markdown in tasks",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 7,
+                "day_range": "3",
+                "category": "Markdown Editor",
+                "priority": "medium",
+                "labels": [
+                    "week-7",
+                    "markdown-editor",
+                    "medium",
+                    "estimate-4h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Install `flutter_markdown` package",
+                    "Implement a rich text editor with markdown support",
+                    "Display task description using the markdown renderer"
+                ]
+            },
+            {
+                "title": "Implement advanced UI and WebSocket connection",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 7,
+                "day_range": "43-49",
+                "category": "Advanced UI Interactions & Real-time",
+                "priority": "high",
+                "labels": [
+                    "week-7",
+                    "advanced-ui-interactions-&-real-time",
+                    "high",
+                    "estimate-8h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Implement swipe gestures for quick actions",
+                    "Add drag-and-drop feature to reorder tasks",
+                    "Create a custom animated progress bar for projects",
+                    "Create a WebSocket service and connect to the backend",
+                    "Listen for task update messages and refresh the UI"
+                ]
+            },
+            {
+                "title": "Implement Push Notifications",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 8,
+                "day_range": "50-56",
+                "category": "Notifications",
+                "priority": "medium",
+                "labels": [
+                    "week-8",
+                    "notifications",
+                    "medium",
+                    "estimate-8h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Set up Firebase in Flutter project",
+                    "Configure FCM for push notifications",
+                    "Implement `flutter_local_notifications`",
+                    "Handle notification tap events"
+                ]
+            },
+            {
+                "title": "UI and Logic for OpenAI Chat",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 8,
+                "day_range": "50-56",
+                "category": "AI Chat",
+                "priority": "high",
+                "labels": [
+                    "week-8",
+                    "ai-chat",
+                    "high",
+                    "estimate-8h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Design a chat UI with `flutter_chat_ui`",
+                    "Create an AIService to interact with the backend API",
+                    "Display responses from the AI",
+                    "Handle loading and streaming responses"
+                ]
+            },
+            {
+                "title": "Add Voice Commands and Accessibility",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 8,
+                "day_range": "5",
+                "category": "Voice & Accessibility",
+                "priority": "low",
+                "labels": [
+                    "week-8",
+                    "voice-&-accessibility",
+                    "low",
+                    "estimate-4h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Install `speech_to_text` package",
+                    "Implement logic to convert speech to a task",
+                    "Add UI indicator for listening state",
+                    "Ensure the app meets accessibility standards",
+                    "Implement localization for key text elements"
+                ]
+            },
+            {
+                "title": "GitHub OAuth and Task Import",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 9,
+                "day_range": "57-63",
+                "category": "GitHub Integration",
+                "priority": "high",
+                "labels": [
+                    "week-9",
+                    "github-integration",
+                    "high",
+                    "estimate-8h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Install `oauth2_client` package",
+                    "Configure GitHub OAuth flow",
+                    "Create UI to connect to GitHub account",
+                    "Call backend API to import GitHub issues"
+                ]
+            },
+            {
+                "title": "File Management and Sync",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 9,
+                "day_range": "3",
+                "category": "File Sync",
+                "priority": "medium",
+                "labels": [
+                    "week-9",
+                    "file-sync",
+                    "medium",
+                    "estimate-4h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Install `file_picker` and `permission_handler`",
+                    "Create UI for file sync",
+                    "Implement logic to upload files to backend",
+                    "Display sync status in UI"
+                ]
+            },
+            {
+                "title": "Integrate with other services and handle webhooks",
+                "description": "",
+                "phase": "Phase 2: Mobile Application (Flutter) Development",
+                "week": 9,
+                "day_range": "57-63",
+                "category": "External Integrations",
+                "priority": "low",
+                "labels": [
+                    "week-9",
+                    "external-integrations",
+                    "low",
+                    "estimate-8h",
+                    "phase-2",
+                    "frontend",
+                    "phase-2-mobile-application-(flutter)-development"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 2: Mobile Application (Flutter) Development",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Implement a webhook listener on the mobile side",
+                    "Explore integration with other APIs (e.g., Google Calendar)",
+                    "Implement a system for displaying rich notifications",
+                    "Implement logic for sending SMS reminders via API"
+                ]
+            }
+        ],
+        "labels": [
+            "phase-2",
+            "frontend",
+            "phase-2-mobile-application-(flutter)-development"
+        ],
+        "goals": [
+            "Basic UI and state management",
+            "In-app authentication system",
+            "Task display and management",
+            "Notifications and smart chat",
+            "Integration with GitHub and SMS"
+        ]
+    },
+    {
+        "name": "Phase 3: AI and Advanced Integration",
+        "description": "Implementing the core AI logic, deep integration with external services, and two-way sync.",
+        "duration_weeks": 3,
+        "tasks": [
+            {
+                "title": "Define OpenAI Prompts and Langchain",
+                "description": "",
+                "phase": "Phase 3: AI and Advanced Integration",
+                "week": 10,
+                "day_range": "64-70",
+                "category": "Prompt Engineering",
+                "priority": "high",
+                "labels": [
+                    "week-10",
+                    "prompt-engineering",
+                    "high",
+                    "estimate-8h",
+                    "phase-3",
+                    "frontend",
+                    "phase-3-ai-and-advanced-integration"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 3: AI and Advanced Integration",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Define prompts for task suggestions",
+                    "Use Langchain for managing conversations",
+                    "Integrate OpenAI Python SDK with FastAPI",
+                    "Create an API endpoint for AI suggestions"
+                ]
+            },
+            {
+                "title": "Implement Dynamic Scheduling",
+                "description": "",
+                "phase": "Phase 3: AI and Advanced Integration",
+                "week": 10,
+                "day_range": "64-70",
+                "category": "Smart Scheduling",
+                "priority": "high",
+                "labels": [
+                    "week-10",
+                    "smart-scheduling",
+                    "high",
+                    "estimate-8h",
+                    "phase-3",
+                    "frontend",
+                    "phase-3-ai-and-advanced-integration"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 3: AI and Advanced Integration",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Implement an intelligent scheduling algorithm",
+                    "Use Celery for long-running scheduling tasks",
+                    "Send scheduling updates via WebSocket",
+                    "Test the scheduling API endpoints"
+                ]
+            },
+            {
+                "title": "Integrate custom AI and implement tracking",
+                "description": "",
+                "phase": "Phase 3: AI and Advanced Integration",
+                "week": 10,
+                "day_range": "5",
+                "category": "Custom AI & Tracking",
+                "priority": "medium",
+                "labels": [
+                    "week-10",
+                    "custom-ai-&-tracking",
+                    "medium",
+                    "estimate-4h",
+                    "phase-3",
+                    "frontend",
+                    "phase-3-ai-and-advanced-integration"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 3: AI and Advanced Integration",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Research and select a library for custom AI models (e.g., spaCy)",
+                    "Train a small model to recognize key entities",
+                    "Integrate this model into the suggestion engine",
+                    "Implement logic to parse user input for progress updates",
+                    "Update task status based on progress"
+                ]
+            },
+            {
+                "title": "Implement GitHub Webhook endpoint",
+                "description": "",
+                "phase": "Phase 3: AI and Advanced Integration",
+                "week": 11,
+                "day_range": "71-77",
+                "category": "Webhooks",
+                "priority": "high",
+                "labels": [
+                    "week-11",
+                    "webhooks",
+                    "high",
+                    "estimate-8h",
+                    "phase-3",
+                    "frontend",
+                    "phase-3-ai-and-advanced-integration"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 3: AI and Advanced Integration",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Create a dedicated API endpoint for GitHub webhooks",
+                    "Implement a security check for webhook secrets",
+                    "Parse and process incoming webhook payloads",
+                    "Update internal tasks based on GitHub events"
+                ]
+            },
+            {
+                "title": "Issue Management API",
+                "description": "",
+                "phase": "Phase 3: AI and Advanced Integration",
+                "week": 11,
+                "day_range": "3",
+                "category": "GitHub API",
+                "priority": "medium",
+                "labels": [
+                    "week-11",
+                    "github-api",
+                    "medium",
+                    "estimate-4h",
+                    "phase-3",
+                    "frontend",
+                    "phase-3-ai-and-advanced-integration"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 3: AI and Advanced Integration",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Use PyGithub to interact with GitHub API",
+                    "Create methods for creating issues",
+                    "Implement methods for updating and closing issues"
+                ]
+            },
+            {
+                "title": "Process Markdown and sync GitHub workflows",
+                "description": "",
+                "phase": "Phase 3: AI and Advanced Integration",
+                "week": 11,
+                "day_range": "71-77",
+                "category": "Markdown & Workflows",
+                "priority": "medium",
+                "labels": [
+                    "week-11",
+                    "markdown-&-workflows",
+                    "medium",
+                    "estimate-8h",
+                    "phase-3",
+                    "frontend",
+                    "phase-3-ai-and-advanced-integration"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 3: AI and Advanced Integration",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Install `python-markdown` and `python-frontmatter`",
+                    "Implement a service to parse markdown files",
+                    "Extract metadata from frontmatter",
+                    "Use `PyGithub` to read GitHub Actions workflow files",
+                    "Create a feature to manually trigger a GitHub Action",
+                    "Automatically create a task when an action fails"
+                ]
+            },
+            {
+                "title": "Build dependency graph with NetworkX",
+                "description": "",
+                "phase": "Phase 3: AI and Advanced Integration",
+                "week": 12,
+                "day_range": "78-84",
+                "category": "Task Graph",
+                "priority": "medium",
+                "labels": [
+                    "week-12",
+                    "task-graph",
+                    "medium",
+                    "estimate-8h",
+                    "phase-3",
+                    "frontend",
+                    "phase-3-ai-and-advanced-integration"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 3: AI and Advanced Integration",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Define task dependencies in the database model",
+                    "Create an API endpoint to generate a graph with NetworkX",
+                    "Develop a Flutter UI to visualize the graph"
+                ]
+            },
+            {
+                "title": "Implement two-way file system sync",
+                "description": "",
+                "phase": "Phase 3: AI and Advanced Integration",
+                "week": 12,
+                "day_range": "78-84",
+                "category": "Two-way Sync",
+                "priority": "high",
+                "labels": [
+                    "week-12",
+                    "two-way-sync",
+                    "high",
+                    "estimate-8h",
+                    "phase-3",
+                    "frontend",
+                    "phase-3-ai-and-advanced-integration"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 3: AI and Advanced Integration",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Set up `watchdog` to monitor local directory",
+                    "Use `GitPython` to commit and push changes",
+                    "Implement logic to pull changes from remote repository",
+                    "Create a `rsync` script for backup"
+                ]
+            },
+            {
+                "title": "Develop advanced data visualization and sync UI",
+                "description": "",
+                "phase": "Phase 3: AI and Advanced Integration",
+                "week": 12,
+                "day_range": "5",
+                "category": "Visualization & Sync UI",
+                "priority": "low",
+                "labels": [
+                    "week-12",
+                    "visualization-&-sync-ui",
+                    "low",
+                    "estimate-4h",
+                    "phase-3",
+                    "frontend",
+                    "phase-3-ai-and-advanced-integration"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 3: AI and Advanced Integration",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Implement complex graph analysis (e.g., critical path)",
+                    "Develop a dashboard for project velocity",
+                    "Export task data in different formats (e.g., CSV)",
+                    "Create a sync status indicator in Flutter UI",
+                    "Add a button to manually trigger sync"
+                ]
+            }
+        ],
+        "labels": [
+            "phase-3",
+            "frontend",
+            "phase-3-ai-and-advanced-integration"
+        ],
+        "goals": [
+            "Intelligent task suggestion system",
+            "Two-way integration with GitHub",
+            "Task graph visualization and file sync"
+        ]
+    },
+    {
+        "name": "Phase 4: Testing, Deployment, and Launch",
+        "description": "Comprehensive testing, setting up CI/CD, and deploying to production.",
+        "duration_weeks": 4,
+        "tasks": [
+            {
+                "title": "Write Integration Tests",
+                "description": "",
+                "phase": "Phase 4: Testing, Deployment, and Launch",
+                "week": 13,
+                "day_range": "85-91",
+                "category": "Backend Testing",
+                "priority": "high",
+                "labels": [
+                    "week-13",
+                    "backend-testing",
+                    "high",
+                    "estimate-8h",
+                    "phase-4",
+                    "frontend",
+                    "phase-4-testing,-deployment,-and-launch"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 4: Testing, Deployment, and Launch",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Write comprehensive integration tests for all API endpoints",
+                    "Run load tests with `locust` or similar tool",
+                    "Identify and fix performance bottlenecks",
+                    "Review code for potential bugs"
+                ]
+            },
+            {
+                "title": "Flutter Tests",
+                "description": "",
+                "phase": "Phase 4: Testing, Deployment, and Launch",
+                "week": 13,
+                "day_range": "85-91",
+                "category": "Mobile Testing",
+                "priority": "medium",
+                "labels": [
+                    "week-13",
+                    "mobile-testing",
+                    "medium",
+                    "estimate-8h",
+                    "phase-4",
+                    "frontend",
+                    "phase-4-testing,-deployment,-and-launch"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 4: Testing, Deployment, and Launch",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Write widget and integration tests for key components",
+                    "Perform manual testing on Android and iOS devices",
+                    "Optimize UI rendering and network requests",
+                    "Fix UI bugs and inconsistencies"
+                ]
+            },
+            {
+                "title": "Code Refactoring and Performance Optimization",
+                "description": "",
+                "phase": "Phase 4: Testing, Deployment, and Launch",
+                "week": 13,
+                "day_range": "5",
+                "category": "Performance & Code Quality",
+                "priority": "low",
+                "labels": [
+                    "week-13",
+                    "performance-&-code-quality",
+                    "low",
+                    "estimate-4h",
+                    "phase-4",
+                    "frontend",
+                    "phase-4-testing,-deployment,-and-launch"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 4: Testing, Deployment, and Launch",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Refactor redundant code sections",
+                    "Improve code clarity and add comments",
+                    "Update project documentation",
+                    "Profile the backend API to identify slow queries",
+                    "Use Flutter DevTools to identify UI jank",
+                    "Implement caching strategies on frontend and backend"
+                ]
+            },
+            {
+                "title": "Configure CI/CD for FastAPI",
+                "description": "",
+                "phase": "Phase 4: Testing, Deployment, and Launch",
+                "week": 14,
+                "day_range": "92-98",
+                "category": "CI/CD Backend",
+                "priority": "high",
+                "labels": [
+                    "week-14",
+                    "ci/cd-backend",
+                    "high",
+                    "estimate-8h",
+                    "phase-4",
+                    "frontend",
+                    "phase-4-testing,-deployment,-and-launch"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 4: Testing, Deployment, and Launch",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Create GitHub Actions workflow for backend",
+                    "Configure build, test, and deploy steps",
+                    "Securely store secrets for Railway deployment",
+                    "Test the CI/CD pipeline"
+                ]
+            },
+            {
+                "title": "Configure CI/CD for Flutter",
+                "description": "",
+                "phase": "Phase 4: Testing, Deployment, and Launch",
+                "week": 14,
+                "day_range": "92-98",
+                "category": "CI/CD Mobile",
+                "priority": "medium",
+                "labels": [
+                    "week-14",
+                    "ci/cd-mobile",
+                    "medium",
+                    "estimate-8h",
+                    "phase-4",
+                    "frontend",
+                    "phase-4-testing,-deployment,-and-launch"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 4: Testing, Deployment, and Launch",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Create GitHub Actions workflow for Flutter",
+                    "Configure build for Android and iOS",
+                    "Set up `fastlane` for automated publishing",
+                    "Test the mobile CI/CD pipeline"
+                ]
+            },
+            {
+                "title": "Add security and staging environment",
+                "description": "",
+                "phase": "Phase 4: Testing, Deployment, and Launch",
+                "week": 14,
+                "day_range": "5",
+                "category": "Security & Staging",
+                "priority": "high",
+                "labels": [
+                    "week-14",
+                    "security-&-staging",
+                    "high",
+                    "estimate-4h",
+                    "phase-4",
+                    "frontend",
+                    "phase-4-testing,-deployment,-and-launch"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 4: Testing, Deployment, and Launch",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Set up automated vulnerability scanning for dependencies",
+                    "Configure a staging environment",
+                    "Implement automated backups for the PostgreSQL database",
+                    "Implement `rate-limiting` for API endpoints",
+                    "Configure Web Application Firewall (WAF) if needed"
+                ]
+            },
+            {
+                "title": "Final Deployment and Production Settings",
+                "description": "",
+                "phase": "Phase 4: Testing, Deployment, and Launch",
+                "week": 15,
+                "day_range": "99-105",
+                "category": "Final Deployment",
+                "priority": "high",
+                "labels": [
+                    "week-15",
+                    "final-deployment",
+                    "high",
+                    "estimate-8h",
+                    "phase-4",
+                    "frontend",
+                    "phase-4-testing,-deployment,-and-launch"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 4: Testing, Deployment, and Launch",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Deploy the project to Railway production environment",
+                    "Configure production environment variables",
+                    "Setup custom domain and HTTPS",
+                    "Perform final smoke tests on production"
+                ]
+            },
+            {
+                "title": "Prepare metadata and pre-launch marketing",
+                "description": "",
+                "phase": "Phase 4: Testing, Deployment, and Launch",
+                "week": 15,
+                "day_range": "99-105",
+                "category": "App Store Prep & Marketing",
+                "priority": "medium",
+                "labels": [
+                    "week-15",
+                    "app-store-prep-&-marketing",
+                    "medium",
+                    "estimate-8h",
+                    "phase-4",
+                    "frontend",
+                    "phase-4-testing,-deployment,-and-launch"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 4: Testing, Deployment, and Launch",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Design app icon and splash screen",
+                    "Create screenshots for App Store and Google Play",
+                    "Write a compelling app description and keywords",
+                    "Fill out all required metadata",
+                    "Create a simple landing page for the product",
+                    "Write a blog post announcing the launch",
+                    "Set up a Discord or Slack channel for the user community"
+                ]
+            },
+            {
+                "title": "Upload and Publish",
+                "description": "",
+                "phase": "Phase 4: Testing, Deployment, and Launch",
+                "week": 15,
+                "day_range": "5",
+                "category": "Final Launch",
+                "priority": "high",
+                "labels": [
+                    "week-15",
+                    "final-launch",
+                    "high",
+                    "estimate-4h",
+                    "phase-4",
+                    "frontend",
+                    "phase-4-testing,-deployment,-and-launch"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 4: Testing, Deployment, and Launch",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Upload APK/AAB to Google Play Console",
+                    "Upload IPA to App Store Connect",
+                    "Submit for review",
+                    "Monitor review status and address any issues"
+                ]
+            },
+            {
+                "title": "Configure Monitoring System",
+                "description": "",
+                "phase": "Phase 4: Testing, Deployment, and Launch",
+                "week": 16,
+                "day_range": "106-112",
+                "category": "Monitoring",
+                "priority": "low",
+                "labels": [
+                    "week-16",
+                    "monitoring",
+                    "low",
+                    "estimate-8h",
+                    "phase-4",
+                    "frontend",
+                    "phase-4-testing,-deployment,-and-launch"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 4: Testing, Deployment, and Launch",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Integrate Sentry SDK into FastAPI and Flutter",
+                    "Monitor app performance and crashes",
+                    "Analyze user behavior with a tool like Firebase Analytics",
+                    "Set up alerts for critical errors"
+                ]
+            },
+            {
+                "title": "Implement feedback system and plan for scaling",
+                "description": "",
+                "phase": "Phase 4: Testing, Deployment, and Launch",
+                "week": 16,
+                "day_range": "3",
+                "category": "Feedback & Scaling",
+                "priority": "low",
+                "labels": [
+                    "week-16",
+                    "feedback-&-scaling",
+                    "low",
+                    "estimate-4h",
+                    "phase-4",
+                    "frontend",
+                    "phase-4-testing,-deployment,-and-launch"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 4: Testing, Deployment, and Launch",
+                "estimated_hours": 4,
+                "subtasks": [
+                    "Add a feedback form or button in the app",
+                    "Connect feedback to a database or issue tracker",
+                    "Analyze user data to identify most used features",
+                    "Create a plan for scaling the infrastructure"
+                ]
+            },
+            {
+                "title": "Feature planning and maintenance",
+                "description": "",
+                "phase": "Phase 4: Testing, Deployment, and Launch",
+                "week": 16,
+                "day_range": "106-112",
+                "category": "Maintenance",
+                "priority": "medium",
+                "labels": [
+                    "week-16",
+                    "maintenance",
+                    "medium",
+                    "estimate-8h",
+                    "phase-4",
+                    "frontend",
+                    "phase-4-testing,-deployment,-and-launch"
+                ],
+                "assignee": "mohrazium",
+                "milestone": "Phase 4: Testing, Deployment, and Launch",
+                "estimated_hours": 8,
+                "subtasks": [
+                    "Address high-priority bug reports",
+                    "Release minor updates and patches",
+                    "Plan the next features based on user feedback",
+                    "Create a roadmap for the next 6-12 months",
+                    "Update project documentation for future developers"
+                ]
+            }
+        ],
+        "labels": [
+            "phase-4",
+            "frontend",
+            "phase-4-testing,-deployment,-and-launch"
+        ],
+        "goals": [
+            "Comprehensive testing and optimization",
+            "CI/CD and DevOps",
+            "Deployment and preparation for launch",
+            "Monitoring and maintenance"
+        ]
+    }
+]

@@ -1,0 +1,762 @@
+project:
+  name: "Zen Task Manager"
+  description: "An advanced task manager with the ability to interact with external services (OpenAI, GitHub), provide smart task suggestions, dynamic scheduling, and progress tracking."
+  type: "client-server"
+
+technology_stack:
+  backend:
+    - "FastAPI"
+    - "PostgreSQL + SQLAlchemy"
+    - "OpenAI Python SDK"
+    - "Celery + Redis"
+    - "Docker"
+    - "PyGithub"
+  frontend:
+    - "Flutter (Dart)"
+    - "Mobx"
+    - "Dio"
+    - "Hive"
+    - "flutter_markdown"
+  database:
+    - "PostgreSQL"
+    - "Redis"
+    - "Hive"
+  deployment:
+    - "Docker"
+    - "Railway"
+
+timeline:
+  total_weeks: 16
+  estimated_hours: 320
+  weekly_commitment: 20
+
+phases:
+  - name: "Phase 1: Backend Core and Database Development"
+    duration_weeks: 4
+    description: "Setting up the core backend infrastructure, designing the database, and implementing the main APIs for user and task management."
+    goals:
+      - "Database and models implementation"
+      - "Complete authentication system"
+      - "CRUD APIs for tasks, projects, and tags"
+      - "WebSocket and background tasks"
+    weeks:
+      - week_number: 1
+        title: "Project and Infrastructure Setup"
+        sprint_goals: "Setting up the development environment, project structure, and implementing database models."
+        categories:
+          - category: "Project Setup (Days 1-2)"
+            tasks:
+              - title: "Set up the project with FastAPI and Docker"
+                description: "Create the initial FastAPI project structure, configure Dockerfile and docker-compose files for the backend and PostgreSQL."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Initialize FastAPI project"
+                  - "Install core dependencies: uvicorn, SQLAlchemy"
+                  - "Create Dockerfile for FastAPI"
+                  - "Configure docker-compose for FastAPI and PostgreSQL"
+          - category: "Database Design (Days 3-4)"
+            tasks:
+              - title: "Design core models with SQLAlchemy"
+                description: "Define core models (User, Task, Project, Tag) with SQLAlchemy and create migration scripts using Alembic."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Define User, Task, Project, Tag models with SQLAlchemy"
+                  - "Define relationships (one-to-many, etc.)"
+                  - "Initialize Alembic for migrations"
+                  - "Create first migration script for core models"
+          - category: "Connection & Orchestration (Day 5)"
+            tasks:
+              - title: "Configure PostgreSQL and prepare for CI/CD"
+                description: "Configure FastAPI's connection to the database, set up production docker-compose, and create CI/CD templates."
+                estimated_hours: 4
+                priority: "medium"
+                subtasks:
+                  - "Configure database URL in settings"
+                  - "Create database session management logic"
+                  - "Implement dependency injection for session"
+                  - "Configure docker-compose.prod.yml"
+                  - "Add a Makefile for dev commands"
+                  - "Write basic CI/CD pipeline template with GitHub Actions"
+        definition_of_done:
+          - "FastAPI project and Docker setup are complete."
+          - "Database models are defined and migrations work."
+          - "Connection to PostgreSQL from FastAPI is established."
+          - "Production Docker config and CI/CD templates are in place."
+      - week_number: 2
+        title: "Authentication and User Management System"
+        sprint_goals: "Implementing a complete user registration, login, and profile management system."
+        categories:
+          - category: "Authentication (Days 1-2)"
+            tasks:
+              - title: "Implement OAuth2 and JWT"
+                description: "Create an authentication system with OAuth2, JWT generation, and validation."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Implement password hashing with `bcrypt`"
+                  - "Create JWT token generation and validation functions"
+                  - "Build register and login API endpoints"
+                  - "Add password reset functionality"
+          - category: "User Management (Days 3-4)"
+            tasks:
+              - title: "User Profile Management API"
+                description: "Create API endpoints for reading and updating user profiles and implementing input validation."
+                estimated_hours: 8
+                priority: "medium"
+                subtasks:
+                  - "Create API endpoints for user profile (read, update)"
+                  - "Implement Pydantic models for request/response"
+                  - "Add input validation logic"
+                  - "Write unit tests for user management"
+          - category: "Authorization & Security (Day 5)"
+            tasks:
+              - title: "Add Advanced Security Features"
+                description: "Implement a dependency to protect endpoints and test access, along with security enhancements like rate-limiting and MFA setup."
+                estimated_hours: 4
+                priority: "high"
+                subtasks:
+                  - "Create dependency to check for valid JWT token"
+                  - "Apply dependency to protected routes"
+                  - "Write integration tests for protected endpoints"
+                  - "Implement rate-limiting for auth endpoints"
+                  - "Add an endpoint for MFA setup"
+        definition_of_done:
+          - "Registration and login system are fully functional."
+          - "User profile management endpoints are implemented."
+          - "All sensitive endpoints are protected."
+          - "Authentication tests are written."
+          - "Rate-limiting and MFA setup are in place."
+      - week_number: 3
+        title: "Task Management API Implementation"
+        sprint_goals: "Creating CRUD APIs for tasks, projects, and tags."
+        categories:
+          - category: "Task APIs (Days 1-2)"
+            tasks:
+              - title: "Implement CRUD for tasks"
+                description: "Create the main endpoints for creating, reading, updating, and deleting tasks."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Create API endpoints for task CRUD operations"
+                  - "Add filtering by status, priority, and date"
+                  - "Implement pagination logic"
+                  - "Write unit tests for task services"
+          - category: "Projects and Tags API (Day 3)"
+            tasks:
+              - title: "CRUD for Projects and Tags"
+                description: "Create endpoints for managing projects and tags and linking them to tasks."
+                estimated_hours: 4
+                priority: "medium"
+                subtasks:
+                  - "Create API endpoints for project and tag CRUD"
+                  - "Implement logic to assign tasks to projects/tags"
+                  - "Write tests for project and tag APIs"
+          - category: "Advanced Search & Testing (Days 4-5)"
+            tasks:
+              - title: "Implement Advanced Search and write API Tests"
+                description: "Implement full-text search, complex filtering, and write comprehensive integration tests for all task management endpoints."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Implement full-text search with PostgreSQL"
+                  - "Create API endpoints for complex filtering"
+                  - "Optimize database queries with indexes"
+                  - "Write integration tests for all task-related endpoints"
+                  - "Add detailed descriptions and examples to OpenAPI spec"
+        definition_of_done:
+          - "CRUD APIs for tasks, project, and tag are complete."
+          - "Filtering, sorting, and pagination work."
+          - "Advanced search functionality is implemented."
+          - "API tests for task management are written."
+          - "Swagger/OpenAPI documentation is up-to-date."
+      - week_number: 4
+        title: "Advanced Backend Features Implementation"
+        sprint_goals: "Adding real-time capabilities with WebSockets, background tasks with Celery, and an event-driven architecture."
+        categories:
+          - category: "WebSocket (Days 1-2)"
+            tasks:
+              - title: "Implement Real-time Connection"
+                description: "Create WebSocket endpoints to send updates to clients in real-time."
+                estimated_hours: 8
+                priority: "medium"
+                subtasks:
+                  - "Setup FastAPI WebSocket endpoint"
+                  - "Implement logic to broadcast task updates"
+                  - "Handle WebSocket connections and disconnections"
+                  - "Test WebSocket communication"
+          - category: "Background Tasks (Day 3)"
+            tasks:
+              - title: "Set up Celery and Redis"
+                description: "Configure Celery to run background tasks such as sending emails or notifications."
+                estimated_hours: 4
+                priority: "medium"
+                subtasks:
+                  - "Configure Redis as Celery broker"
+                  - "Define a sample Celery task (e.g., send email)"
+                  - "Integrate Celery task invocation into FastAPI endpoints"
+                  - "Run Celery worker and test task execution"
+          - category: "Event-Driven & Logging (Days 4-5)"
+            tasks:
+              - title: "Implement Event-Driven Architecture and Logging"
+                description: "Refactor the system to use events for asynchronous processing and set up a robust logging system."
+                estimated_hours: 8
+                priority: "low"
+                subtasks:
+                  - "Refactor to emit events on task changes"
+                  - "Use Celery and Redis to process events asynchronously"
+                  - "Implement event handlers for specific actions"
+                  - "Configure structured logging for FastAPI"
+                  - "Add basic middleware for request tracing"
+                  - "Set up error reporting with Sentry"
+        definition_of_done:
+          - "WebSocket for real-time updates is functional."
+          - "Celery for background tasks is set up."
+          - "The system uses an event-driven approach for core logic."
+          - "A robust logging and error reporting system is implemented."
+
+  - name: "Phase 2: Mobile Application (Flutter) Development"
+    duration_weeks: 5
+    description: "Developing the mobile user interface, implementing client-side logic, and connecting to the backend APIs."
+    goals:
+      - "Basic UI and state management"
+      - "In-app authentication system"
+      - "Task display and management"
+      - "Notifications and smart chat"
+      - "Integration with GitHub and SMS"
+    weeks:
+      - week_number: 5
+        title: "Flutter Setup and Basic UI"
+        sprint_goals: "Setting up the Flutter project, designing core pages, and implementing state management."
+        categories:
+          - category: "Flutter Setup (Days 1-2)"
+            tasks:
+              - title: "Create project and install dependencies"
+                description: "Set up the Flutter project and install necessary packages (Mobx, Dio, etc.)."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Create new Flutter project"
+                  - "Install Mobx, flutter_mobx, dio"
+                  - "Setup basic project structure and routing"
+                  - "Configure theming and app assets"
+          - category: "UI Design (Days 3-4)"
+            tasks:
+              - title: "Design Login/Register and Dashboard pages"
+                description: "Build the initial UI for login, registration, and the main dashboard."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Design Login and Register pages UI"
+                  - "Create basic Dashboard layout"
+                  - "Implement Task List UI component"
+                  - "Create reusable UI widgets"
+          - category: "State & Advanced UI (Day 5)"
+            tasks:
+              - title: "Implement Mobx stores and advanced UI setup"
+                description: "Create Mobx stores for state management and set up a custom theme with dark/light modes."
+                estimated_hours: 4
+                priority: "medium"
+                subtasks:
+                  - "Create an AuthenticationStore and a TaskStore"
+                  - "Connect UI widgets to the stores using `Observer`"
+                  - "Create a custom theme with dark and light modes"
+                  - "Implement a reusable `TaskCard` widget"
+                  - "Set up the internationalization (i18n) framework"
+        definition_of_done:
+          - "Flutter project is set up and dependencies are installed."
+          - "UI for core pages is designed."
+          - "Mobx is configured for state management."
+          - "A custom theme and i18n are implemented."
+      - week_number: 6
+        title: "Mobile Authentication Implementation"
+        sprint_goals: "Connecting to the backend API for login/register and storing tokens."
+        categories:
+          - category: "API Client (Days 1-2)"
+            tasks:
+              - title: "Configure Dio and Service Layer"
+                description: "Configure Dio for HTTP requests and create a service layer for authentication APIs."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Configure Dio with interceptors for JWT token"
+                  - "Create AuthenticationService class"
+                  - "Implement register, login, and refresh token methods"
+                  - "Handle error and success responses"
+          - category: "UI and Logic (Day 3)"
+            tasks:
+              - title: "Connect Login/Register forms to API"
+                description: "Connect the UI forms to the service layer and manage different states."
+                estimated_hours: 4
+                priority: "high"
+                subtasks:
+                  - "Connect Login form to the AuthenticationService"
+                  - "Connect Register form to the AuthenticationService"
+                  - "Show loading indicators and error messages"
+          - category: "Data Storage & Offline (Days 4-5)"
+            tasks:
+              - title: "Store JWT and user settings, and implement offline logic"
+                description: "Use `flutter_secure_storage` for tokens, Hive for settings, and implement an 'offline-first' strategy."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Install `flutter_secure_storage` and `hive`"
+                  - "Implement token storage and retrieval logic"
+                  - "Initialize Hive and create a settings box"
+                  - "Manage user session persistence"
+                  - "Implement logic to store tasks locally"
+                  - "Show a different UI state when the app is offline"
+        definition_of_done:
+          - "Login/registration works in the app."
+          - "JWT tokens are stored securely."
+          - "User session data persists on the device."
+          - "The app can handle offline task management."
+      - week_number: 7
+        title: "Task Display and Management"
+        sprint_goals: "Implementing UI for task CRUD, markdown support, and advanced UI interactions."
+        categories:
+          - category: "Task List UI (Days 1-2)"
+            tasks:
+              - title: "Display task list from API"
+                description: "Fetch tasks from the API and display them with filtering and sorting in the UI."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Create a TaskService to fetch tasks from API"
+                  - "Implement UI for filtering and sorting"
+                  - "Display tasks in a list using `ListView`"
+                  - "Handle loading and empty states"
+          - category: "Markdown Editor (Day 3)"
+            tasks:
+              - title: "Support Markdown in tasks"
+                description: "Use `flutter_markdown` to display and edit task content."
+                estimated_hours: 4
+                priority: "medium"
+                subtasks:
+                  - "Install `flutter_markdown` package"
+                  - "Implement a rich text editor with markdown support"
+                  - "Display task description using the markdown renderer"
+          - category: "Advanced UI Interactions & Real-time (Days 4-5)"
+            tasks:
+              - title: "Implement advanced UI and WebSocket connection"
+                description: "Add swipe and drag-and-drop gestures for tasks and connect to the WebSocket for real-time updates."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Implement swipe gestures for quick actions"
+                  - "Add drag-and-drop feature to reorder tasks"
+                  - "Create a custom animated progress bar for projects"
+                  - "Create a WebSocket service and connect to the backend"
+                  - "Listen for task update messages and refresh the UI"
+        definition_of_done:
+          - "Task list is fetched and displayed from the API."
+          - "Task CRUD works in the app."
+          - "Markdown content of tasks is rendered."
+          - "Advanced UI gestures are implemented."
+          - "Updates are displayed in real-time."
+      - week_number: 8
+        title: "Advanced Mobile Features"
+        sprint_goals: "Implementing notifications, the smart chat system with OpenAI, and voice commands."
+        categories:
+          - category: "Notifications (Days 1-2)"
+            tasks:
+              - title: "Implement Push Notifications"
+                description: "Configure Firebase Cloud Messaging for push notifications and local notifications."
+                estimated_hours: 8
+                priority: "medium"
+                subtasks:
+                  - "Set up Firebase in Flutter project"
+                  - "Configure FCM for push notifications"
+                  - "Implement `flutter_local_notifications`"
+                  - "Handle notification tap events"
+          - category: "AI Chat (Days 3-4)"
+            tasks:
+              - title: "UI and Logic for OpenAI Chat"
+                description: "Design the chat UI and connect it to the API for interacting with OpenAI."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Design a chat UI with `flutter_chat_ui`"
+                  - "Create an AIService to interact with the backend API"
+                  - "Display responses from the AI"
+                  - "Handle loading and streaming responses"
+          - category: "Voice & Accessibility (Day 5)"
+            tasks:
+              - title: "Add Voice Commands and Accessibility"
+                description: "Use `speech_to_text` for voice commands and ensure the app meets accessibility standards and has localization."
+                estimated_hours: 4
+                priority: "low"
+                subtasks:
+                  - "Install `speech_to_text` package"
+                  - "Implement logic to convert speech to a task"
+                  - "Add UI indicator for listening state"
+                  - "Ensure the app meets accessibility standards"
+                  - "Implement localization for key text elements"
+        definition_of_done:
+          - "Notifications (Push and Local) are functional."
+          - "The smart chat UI with OpenAI is implemented."
+          - "Voice commands for task creation are active."
+          - "Accessibility and localization are addressed."
+      - week_number: 9
+        title: "Integration and Syncing"
+        sprint_goals: "Connecting to external services like GitHub and SMS, and implementing file sync."
+        categories:
+          - category: "GitHub Integration (Days 1-2)"
+            tasks:
+              - title: "GitHub OAuth and Task Import"
+                description: "Implement GitHub OAuth for authentication and importing issues."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Install `oauth2_client` package"
+                  - "Configure GitHub OAuth flow"
+                  - "Create UI to connect to GitHub account"
+                  - "Call backend API to import GitHub issues"
+          - category: "File Sync (Day 3)"
+            tasks:
+              - title: "File Management and Sync"
+                description: "Use `file_picker` to select files and sync them with the backend."
+                estimated_hours: 4
+                priority: "medium"
+                subtasks:
+                  - "Install `file_picker` and `permission_handler`"
+                  - "Create UI for file sync"
+                  - "Implement logic to upload files to backend"
+                  - "Display sync status in UI"
+          - category: "External Integrations (Days 4-5)"
+            tasks:
+              - title: "Integrate with other services and handle webhooks"
+                description: "Implement a webhook listener, and explore integration with services like Google Calendar or Slack."
+                estimated_hours: 8
+                priority: "low"
+                subtasks:
+                  - "Implement a webhook listener on the mobile side"
+                  - "Explore integration with other APIs (e.g., Google Calendar)"
+                  - "Implement a system for displaying rich notifications"
+                  - "Implement logic for sending SMS reminders via API"
+        definition_of_done:
+          - "GitHub authentication works and issues are imported."
+          - "File sync capability with the backend is implemented."
+          - "The app can handle external integrations and webhooks."
+          - "SMS reminders can be sent from the app."
+
+  - name: "Phase 3: AI and Advanced Integration"
+    duration_weeks: 3
+    description: "Implementing the core AI logic, deep integration with external services, and two-way sync."
+    goals:
+      - "Intelligent task suggestion system"
+      - "Two-way integration with GitHub"
+      - "Task graph visualization and file sync"
+    weeks:
+      - week_number: 10
+        title: "AI and Natural Language Processing"
+        sprint_goals: "Implementing the logic for smart suggestions and dynamic scheduling."
+        categories:
+          - category: "Prompt Engineering (Days 1-2)"
+            tasks:
+              - title: "Define OpenAI Prompts and Langchain"
+                description: "Create various prompts for OpenAI for task suggestions and smart scheduling."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Define prompts for task suggestions"
+                  - "Use Langchain for managing conversations"
+                  - "Integrate OpenAI Python SDK with FastAPI"
+                  - "Create an API endpoint for AI suggestions"
+          - category: "Smart Scheduling (Days 3-4)"
+            tasks:
+              - title: "Implement Dynamic Scheduling"
+                description: "Build logic for intelligent task scheduling based on priority and available resources."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Implement an intelligent scheduling algorithm"
+                  - "Use Celery for long-running scheduling tasks"
+                  - "Send scheduling updates via WebSocket"
+                  - "Test the scheduling API endpoints"
+          - category: "Custom AI & Tracking (Day 5)"
+            tasks:
+              - title: "Integrate custom AI and implement tracking"
+                description: "Integrate a custom AI model to improve suggestions and create logic for tracking task progress."
+                estimated_hours: 4
+                priority: "medium"
+                subtasks:
+                  - "Research and select a library for custom AI models (e.g., spaCy)"
+                  - "Train a small model to recognize key entities"
+                  - "Integrate this model into the suggestion engine"
+                  - "Implement logic to parse user input for progress updates"
+                  - "Update task status based on progress"
+        definition_of_done:
+          - "AI APIs for task suggestion and scheduling are ready."
+          - "Dynamic scheduling is implemented on the backend."
+          - "A custom AI model is integrated."
+          - "Task progress tracking is functional."
+      - week_number: 11
+        title: "Deep GitHub Integration"
+        sprint_goals: "Implementing two-way sync with GitHub and using Webhooks."
+        categories:
+          - category: "Webhooks (Days 1-2)"
+            tasks:
+              - title: "Implement GitHub Webhook endpoint"
+                description: "Create an endpoint in FastAPI to receive GitHub events."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Create a dedicated API endpoint for GitHub webhooks"
+                  - "Implement a security check for webhook secrets"
+                  - "Parse and process incoming webhook payloads"
+                  - "Update internal tasks based on GitHub events"
+          - category: "GitHub API (Day 3)"
+            tasks:
+              - title: "Issue Management API"
+                description: "Implement logic to create, update, and close issues on GitHub via the API."
+                estimated_hours: 4
+                priority: "medium"
+                subtasks:
+                  - "Use PyGithub to interact with GitHub API"
+                  - "Create methods for creating issues"
+                  - "Implement methods for updating and closing issues"
+          - category: "Markdown & Workflows (Days 4-5)"
+            tasks:
+              - title: "Process Markdown and sync GitHub workflows"
+                description: "Use `python-markdown` and `python-frontmatter` for file sync and `PyGithub` to read GitHub Actions workflow status."
+                estimated_hours: 8
+                priority: "medium"
+                subtasks:
+                  - "Install `python-markdown` and `python-frontmatter`"
+                  - "Implement a service to parse markdown files"
+                  - "Extract metadata from frontmatter"
+                  - "Use `PyGithub` to read GitHub Actions workflow files"
+                  - "Create a feature to manually trigger a GitHub Action"
+                  - "Automatically create a task when an action fails"
+        definition_of_done:
+          - "Webhooks are received and processed from GitHub."
+          - "The ability to create, update, and close issues on GitHub is implemented."
+          - "Markdown files with metadata are processed correctly."
+          - "GitHub Actions workflow status can be read and interacted with."
+      - week_number: 12
+        title: "Graph Development and Two-way Sync"
+        sprint_goals: "Implementing task dependency visualization and two-way file system sync."
+        categories:
+          - category: "Task Graph (Days 1-2)"
+            tasks:
+              - title: "Build dependency graph with NetworkX"
+                description: "Use `networkx` to visualize dependencies between tasks."
+                estimated_hours: 8
+                priority: "medium"
+                subtasks:
+                  - "Define task dependencies in the database model"
+                  - "Create an API endpoint to generate a graph with NetworkX"
+                  - "Develop a Flutter UI to visualize the graph"
+          - category: "Two-way Sync (Days 3-4)"
+            tasks:
+              - title: "Implement two-way file system sync"
+                description: "Use `watchdog` and `GitPython` for automatic file sync with the repository."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Set up `watchdog` to monitor local directory"
+                  - "Use `GitPython` to commit and push changes"
+                  - "Implement logic to pull changes from remote repository"
+                  - "Create a `rsync` script for backup"
+          - category: "Visualization & Sync UI (Day 5)"
+            tasks:
+              - title: "Develop advanced data visualization and sync UI"
+                description: "Implement more complex graph analysis, a dashboard for project velocity, and a UI to manage sync."
+                estimated_hours: 4
+                priority: "low"
+                subtasks:
+                  - "Implement complex graph analysis (e.g., critical path)"
+                  - "Develop a dashboard for project velocity"
+                  - "Export task data in different formats (e.g., CSV)"
+                  - "Create a sync status indicator in Flutter UI"
+                  - "Add a button to manually trigger sync"
+        definition_of_done:
+          - "The task dependency graph API is functional."
+          - "Two-way file system sync is implemented."
+          - "UI for sync management is added to the app."
+          - "Advanced data visualization is implemented."
+
+  - name: "Phase 4: Testing, Deployment, and Launch"
+    duration_weeks: 4
+    description: "Comprehensive testing, setting up CI/CD, and deploying to production."
+    goals:
+      - "Comprehensive testing and optimization"
+      - "CI/CD and DevOps"
+      - "Deployment and preparation for launch"
+      - "Monitoring and maintenance"
+    weeks:
+      - week_number: 13
+        title: "Comprehensive Testing and Optimization"
+        sprint_goals: "Executing end-to-end tests and fixing bugs."
+        categories:
+          - category: "Backend Testing (Days 1-2)"
+            tasks:
+              - title: "Write Integration Tests"
+                description: "Write comprehensive tests for all APIs and perform load testing."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Write comprehensive integration tests for all API endpoints"
+                  - "Run load tests with `locust` or similar tool"
+                  - "Identify and fix performance bottlenecks"
+                  - "Review code for potential bugs"
+          - category: "Mobile Testing (Days 3-4)"
+            tasks:
+              - title: "Flutter Tests"
+                description: "Run widget and integration tests and manual tests on various devices."
+                estimated_hours: 8
+                priority: "medium"
+                subtasks:
+                  - "Write widget and integration tests for key components"
+                  - "Perform manual testing on Android and iOS devices"
+                  - "Optimize UI rendering and network requests"
+                  - "Fix UI bugs and inconsistencies"
+          - category: "Performance & Code Quality (Day 5)"
+            tasks:
+              - title: "Code Refactoring and Performance Optimization"
+                description: "Review and improve code quality, efficiency, and maintainability, and profile for performance issues."
+                estimated_hours: 4
+                priority: "low"
+                subtasks:
+                  - "Refactor redundant code sections"
+                  - "Improve code clarity and add comments"
+                  - "Update project documentation"
+                  - "Profile the backend API to identify slow queries"
+                  - "Use Flutter DevTools to identify UI jank"
+                  - "Implement caching strategies on frontend and backend"
+        definition_of_done:
+          - "All major bugs in the backend and mobile app are fixed."
+          - "Comprehensive tests are written and working."
+          - "Application performance is optimized."
+      - week_number: 14
+        title: "DevOps and CI/CD"
+        sprint_goals: "Setting up pipelines for automated build and deployment."
+        categories:
+          - category: "CI/CD Backend (Days 1-2)"
+            tasks:
+              - title: "Configure CI/CD for FastAPI"
+                description: "Write a GitHub Actions workflow for automated testing and deployment of the backend to Railway."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Create GitHub Actions workflow for backend"
+                  - "Configure build, test, and deploy steps"
+                  - "Securely store secrets for Railway deployment"
+                  - "Test the CI/CD pipeline"
+          - category: "CI/CD Mobile (Days 3-4)"
+            tasks:
+              - title: "Configure CI/CD for Flutter"
+                description: "Use GitHub Actions for automated builds and Fastlane for publishing."
+                estimated_hours: 8
+                priority: "medium"
+                subtasks:
+                  - "Create GitHub Actions workflow for Flutter"
+                  - "Configure build for Android and iOS"
+                  - "Set up `fastlane` for automated publishing"
+                  - "Test the mobile CI/CD pipeline"
+          - category: "Security & Staging (Day 5)"
+            tasks:
+              - title: "Add security and staging environment"
+                description: "Set up automated vulnerability scanning, a staging environment, and database backups."
+                estimated_hours: 4
+                priority: "high"
+                subtasks:
+                  - "Set up automated vulnerability scanning for dependencies"
+                  - "Configure a staging environment"
+                  - "Implement automated backups for the PostgreSQL database"
+                  - "Implement `rate-limiting` for API endpoints"
+                  - "Configure Web Application Firewall (WAF) if needed"
+        definition_of_done:
+          - "CI/CD pipelines for backend and mobile are working."
+          - "Automated deployment to Railway is active."
+          - "A staging environment and automated backups are configured."
+      - week_number: 15
+        title: "Deployment and Launch Preparation"
+        sprint_goals: "Final deployment to production and preparing for App Store release."
+        categories:
+          - category: "Final Deployment (Days 1-2)"
+            tasks:
+              - title: "Final Deployment and Production Settings"
+                description: "Deploy the project to Railway, configure environment variables and the domain."
+                estimated_hours: 8
+                priority: "high"
+                subtasks:
+                  - "Deploy the project to Railway production environment"
+                  - "Configure production environment variables"
+                  - "Setup custom domain and HTTPS"
+                  - "Perform final smoke tests on production"
+          - category: "App Store Prep & Marketing (Days 3-4)"
+            tasks:
+              - title: "Prepare metadata and pre-launch marketing"
+                description: "Prepare the icon, screenshots, description, and other information for publishing, and create pre-launch marketing materials."
+                estimated_hours: 8
+                priority: "medium"
+                subtasks:
+                  - "Design app icon and splash screen"
+                  - "Create screenshots for App Store and Google Play"
+                  - "Write a compelling app description and keywords"
+                  - "Fill out all required metadata"
+                  - "Create a simple landing page for the product"
+                  - "Write a blog post announcing the launch"
+                  - "Set up a Discord or Slack channel for the user community"
+          - category: "Final Launch (Day 5)"
+            tasks:
+              - title: "Upload and Publish"
+                description: "Upload the application to Google Play and App Store and monitor the process."
+                estimated_hours: 4
+                priority: "high"
+                subtasks:
+                  - "Upload APK/AAB to Google Play Console"
+                  - "Upload IPA to App Store Connect"
+                  - "Submit for review"
+                  - "Monitor review status and address any issues"
+        definition_of_done:
+          - "The backend is active on Railway in production."
+          - "App files are ready for publishing."
+          - "The app has been submitted for review in the App Store."
+          - "Pre-launch marketing efforts are complete."
+      - week_number: 16
+        title: "Monitoring and Maintenance"
+        sprint_goals: "Setting up monitoring, gathering feedback, and planning for future updates."
+        categories:
+          - category: "Monitoring (Days 1-2)"
+            tasks:
+              - title: "Configure Monitoring System"
+                description: "Configure Sentry for error tracking and use Railway's monitoring tools."
+                estimated_hours: 8
+                priority: "low"
+                subtasks:
+                  - "Integrate Sentry SDK into FastAPI and Flutter"
+                  - "Monitor app performance and crashes"
+                  - "Analyze user behavior with a tool like Firebase Analytics"
+                  - "Set up alerts for critical errors"
+          - category: "Feedback & Scaling (Day 3)"
+            tasks:
+              - title: "Implement feedback system and plan for scaling"
+                description: "Create a mechanism to receive user feedback and a plan for scaling the infrastructure as the user base grows."
+                estimated_hours: 4
+                priority: "low"
+                subtasks:
+                  - "Add a feedback form or button in the app"
+                  - "Connect feedback to a database or issue tracker"
+                  - "Analyze user data to identify most used features"
+                  - "Create a plan for scaling the infrastructure"
+          - category: "Maintenance (Days 4-5)"
+            tasks:
+              - title: "Feature planning and maintenance"
+                description: "Fixing reported bugs, releasing minor updates, and planning for future sprints based on user feedback."
+                estimated_hours: 8
+                priority: "medium"
+                subtasks:
+                  - "Address high-priority bug reports"
+                  - "Release minor updates and patches"
+                  - "Plan the next features based on user feedback"
+                  - "Create a roadmap for the next 6-12 months"
+                  - "Update project documentation for future developers"
+        definition_of_done:
+          - "The error monitoring system is active."
+          - "The feedback collection mechanism is implemented."
+          - "Initial planning for future sprints is complete."
+          - "A plan for scaling the infrastructure is in place."

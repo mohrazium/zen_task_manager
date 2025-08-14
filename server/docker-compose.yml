@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  db:
+    # container_name: psql_container_zen_task_manager
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: zen_task_manager_db
+      POSTGRES_USER: zen_task_manager_user
+      POSTGRES_PASSWORD: Z3n#T45k#M4n4g3r#P455w0rd
+    volumes:
+      - ./scripts/db/init-db:/docker-entrypoint-initdb.d
+      - postgres_data:/home/mohrazium/Projects/WorkSpaces/zen_task_manager/server/scripts/db/data #TODO change in prodution
+volumes:
+  postgres_data:

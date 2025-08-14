@@ -1,0 +1,42 @@
+# FastAPI and dependencies
+fastapi
+fastapi[standard]
+uvicorn[standard]
+pydantic
+pydantic-settings
+
+# Database
+sqlalchemy
+alembic
+psycopg2-binary
+asyncpg
+
+# GraphQL
+strawberry-graphql[fastapi]
+graphql-core
+
+# Authentication & Security
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+
+# Testing
+pytest
+pytest-asyncio
+pytest-mock
+httpx
+factory-boy
+
+# Development
+black
+isort
+flake8
+mypy
+pre-commit
+
+# Utilities
+python-dotenv
+redis
+celery
+email-validator
+pillow
