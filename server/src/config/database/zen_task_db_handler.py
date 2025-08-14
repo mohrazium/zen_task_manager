@@ -9,6 +9,7 @@ _db.initialize()
 
 class ZenTaskDbHandler:
     def __init__(self) -> None:
+        
         pass
 
     @staticmethod
