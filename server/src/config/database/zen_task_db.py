@@ -1,11 +1,13 @@
-from fastapi.logger import logger
-import yaml
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, scoped_session
-from src.config.database.base_table import BaseTable
 from typing import Optional
 
+import yaml
+from fastapi.logger import logger
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session, sessionmaker
+
+from src.config.database.base_table import BaseTable
 from src.config.exceptions.failure_exception import FailureException
+
 
 def _loadConfig()-> str:
         try:

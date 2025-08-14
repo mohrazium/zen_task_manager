@@ -2,9 +2,6 @@ from fastapi import FastAPI
 
 from src.config.database.zen_task_db_handler import ZenTaskDbHandler
 
-
-
-
 app = FastAPI()
 
 

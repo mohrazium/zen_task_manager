@@ -2,7 +2,6 @@
 
 from src.config.database.zen_task_db import ZenTaskDatabase
 
-
 _db = ZenTaskDatabase()
 _db.initialize()
 

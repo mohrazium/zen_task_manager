@@ -1,7 +1,6 @@
 from fastapi.testclient import TestClient
-from src.app.main import  app  # Adjusted import to match the new app name
 
-
+from src.app.main import app  # Adjusted import to match the new app name
 
 
 def test_read_root():
